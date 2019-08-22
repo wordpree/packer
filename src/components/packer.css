@@ -8,19 +8,21 @@
 .formsubmit {
   margin-left: 1rem;
 }
-.enrty {
-  display: flex;
-  flex-direction: column;
+.entry {
+  margin: 0 auto;
+  text-align: center;
 }
 .pack,
 .unpack {
   padding: 0.75rem;
-  margin-right: 1rem;
-  display: inline;
+  margin-bottom: 2rem;
+}
+.item {
+  display: inline-block;
+  margin-left: 1rem;
 }
 .checkbox {
-  margin-right: 1rem;
-  color: chocolate;
+  margin-right: 0.5rem;
 }
 .list-enter {
   opacity: 0;

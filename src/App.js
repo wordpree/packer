@@ -1,9 +1,9 @@
 import React from "react";
-import Packer from "./components/Packer";
+import Application from "./components/Application";
 function App() {
   return (
     <div className="App">
-      <Packer />
+      <Application />
     </div>
   );
 }
