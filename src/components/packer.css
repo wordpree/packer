@@ -22,3 +22,17 @@
   margin-right: 1rem;
   color: chocolate;
 }
+.list-enter {
+  opacity: 0;
+}
+.list-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.list-exit {
+  opacity: 1;
+}
+.list-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}

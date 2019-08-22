@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import "./packer.css";
 const uuId = require("uuid/v4");
 
@@ -34,37 +35,45 @@ export default function Packer() {
           <h3>
             The unpacked Items({list.filter(item => !item.status).length})
           </h3>
-          {list
-            .filter(item => !item.status)
-            .map((item, index) => (
-              <div key={index} className="pack">
-                <input
-                  className="checkbox"
-                  checked={item.status}
-                  id={item.name}
-                  type="checkbox"
-                  onChange={e => handleCheckbox(item.id)}
-                />
-                <label htmlFor={item.name}>{item.name}</label>
-              </div>
-            ))}
+          <TransitionGroup>
+            {list
+              .filter(item => !item.status)
+              .map((item, index) => (
+                <CSSTransition key={index} timeout={600} classNames="list">
+                  <div className="pack">
+                    <input
+                      className="checkbox"
+                      checked={item.status}
+                      id={item.name}
+                      type="checkbox"
+                      onChange={e => handleCheckbox(item.id)}
+                    />
+                    <label htmlFor={item.name}>{item.name}</label>
+                  </div>
+                </CSSTransition>
+              ))}
+          </TransitionGroup>
         </div>
         <div className="unpacker">
           <h3>The packed Items({list.filter(item => item.status).length})</h3>
-          {list
-            .filter(item => item.status)
-            .map((item, index) => (
-              <div key={index} className="unpack">
-                <input
-                  className="checkbox"
-                  checked={item.status}
-                  id={item.name}
-                  type="checkbox"
-                  onChange={e => handleCheckbox(item.id)}
-                />
-                <label htmlFor={item.name}>{item.name}</label>
-              </div>
-            ))}
+          <TransitionGroup>
+            {list
+              .filter(item => item.status)
+              .map((item, index) => (
+                <CSSTransition key={index} timeout={600} classNames="list">
+                  <div key={index} className="unpack">
+                    <input
+                      className="checkbox"
+                      checked={item.status}
+                      id={item.name}
+                      type="checkbox"
+                      onChange={e => handleCheckbox(item.id)}
+                    />
+                    <label htmlFor={item.name}>{item.name}</label>
+                  </div>
+                </CSSTransition>
+              ))}
+          </TransitionGroup>
         </div>
       </div>
     </div>
